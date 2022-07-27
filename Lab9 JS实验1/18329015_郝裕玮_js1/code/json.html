@@ -1,0 +1,46 @@
+<!DOCTYPE  html>
+<html  lang="zh-cn">
+<head>
+   <title>json</title>
+   <script>
+      stus=[
+                  { "name":"stu1",
+                    "classes":["c1","c2","c5"],
+                  },
+                 {  "name":"stu2",
+                    "classes":["c1","c3","c4"],
+                 },
+                {   "name":"stu3",
+                    "classes":["c1","c2","c4"],
+                 },
+                 {   "name":"stu4",
+                    "classes":["c1","c2","c4"],
+                 },
+                ]
+      document.write("====1====<br>");
+      for (var i in stus) {
+         document.write(stus[i].name + ";");
+         for (var j in stus[i].classes) {
+             document.write(stus[i].classes[j] + " ");
+         }
+         document.write("<br>");
+      }
+      document.write("</br>====2====</br>")
+      document.write("[")
+      var cnt = 0
+      for(i in stus){
+         cnt = cnt+1
+         if(cnt == 4){
+            document.write(JSON.stringify(stus[i])+"]"+"</br></br>");
+         }
+         else{
+            document.write(JSON.stringify(stus[i])+","+"</br>");
+         }       
+      }
+      document.write("====3====<br>" + JSON.parse(JSON.stringify(stus))[3].classes[2]);
+   </script>
+</head>
+<body>
+</body>
+</html>
+
